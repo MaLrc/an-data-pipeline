@@ -1,0 +1,67 @@
+database: null
+
+datasets:
+  Scrutins:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/loi/scrutins/Scrutins.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "scrutins"
+    cache_file_name: "scrutins.zip"
+    cache_sub_folder: "json"
+    stg_table: raw_scrutins
+  Reunions:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/vp/reunions/Agenda.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "reunions"
+    cache_file_name: "reunions.zip"
+    cache_sub_folder: "json/reunion"
+    stg_table: raw_reunions
+  Amendements:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/loi/amendements_div_legis/Amendements.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "amendements"
+    cache_file_name: "amendements.zip"
+    cache_sub_folder: "json/amendements"
+    stg_table: raw_amendements
+  Agenda:
+    file_url: "http://data.assemblee-nationale.fr/static/openData/repository/17/vp/seances/seances_publique_libre_office.csv"
+    file_type: 'csv'
+    cache_dataset_folder: "agenda"
+    cache_file_name: "agenda.csv"
+    cache_sub_folder: ""
+    stg_table: raw_agenda
+  Deputes:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_csv_opendata/liste_deputes_libre_office.csv"
+    file_type: 'csv'
+    cache_dataset_folder: "deputes"
+    cache_file_name: "deputes.csv"
+    cache_sub_folder: ""
+    stg_table: raw_deputes
+  Acteurs:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_mandats_actifs_organes_divises/AMO40_deputes_actifs_mandats_actifs_organes_divises.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "deputes_actifs_mandats_actifs_organes_divises"
+    cache_file_name: "AMO40_deputes_actifs_mandats_actifs_organes_divises.zip"
+    cache_sub_folder: "acteur"
+    stg_table: raw_acteurs
+  Deports:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_mandats_actifs_organes_divises/AMO40_deputes_actifs_mandats_actifs_organes_divises.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "deputes_actifs_mandats_actifs_organes_divises"
+    cache_file_name: "AMO40_deputes_actifs_mandats_actifs_organes_divises.zip"
+    cache_sub_folder: "deport"
+    stg_table: raw_deports
+  Organes:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_mandats_actifs_organes_divises/AMO40_deputes_actifs_mandats_actifs_organes_divises.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "deputes_actifs_mandats_actifs_organes_divises"
+    cache_file_name: "AMO40_deputes_actifs_mandats_actifs_organes_divises.zip"
+    cache_sub_folder: "organe"
+    stg_table: raw_organes
+  Pays:
+    file_url: "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_mandats_actifs_organes_divises/AMO40_deputes_actifs_mandats_actifs_organes_divises.json.zip"
+    file_type: 'json'
+    cache_dataset_folder: "deputes_actifs_mandats_actifs_organes_divises"
+    cache_file_name: "AMO40_deputes_actifs_mandats_actifs_organes_divises.zip"
+    cache_sub_folder: "pays"
+    stg_table: raw_pays
+  
