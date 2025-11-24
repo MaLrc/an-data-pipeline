@@ -13,3 +13,5 @@ wheels/
 data/
 .DS_Store
 .env
+dbt/draft.sql
+dbt/native_sql/*.sql
