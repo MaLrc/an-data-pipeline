@@ -47,6 +47,7 @@ class Dataset():
         )
       except Exception as e:
         logger.error(f'Error when downloading file from {self.dataset_config.file_url}. \n Error : {e}')
+        return False
     else:
       logger.info(f'Skipping download for dataset {self.dataset_name}.')
     

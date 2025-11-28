@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-from pprint import pprint
 from config.config import load_config, get_environment, CACHE_FOLDER
 from pathlib import Path
 from datasets.dataset import Dataset
@@ -22,4 +21,9 @@ for ds_name, ds_config in datasets_list.items() :
     duck_client=duck_client
   )
   logger.info(f'Start processing dataset : {ds_name}')
-  ds.process_dataset()
+  process_status = ds.process_dataset()
+  if process_status:
+    logger.success(f'Ingestion Done for dataset {ds_name}')
+  else : 
+    logger.warning(f'Ingestion Skipped for dataset {ds_name}')
+     

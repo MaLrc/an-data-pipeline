@@ -76,7 +76,7 @@ def unzip_files(zip_file: Union[str, Path], extract_folder:Union[str, Path], mem
   """
   with ZipFile(zip_file, 'r') as zf:
     try:
-      logger.info(f'Unziping {len(zf.namelist())} file(s) from {str(zip_file)}')
+      logger.info(f'Unziping {len(zf.namelist())} file(s).')
       zf.extractall(
         path=extract_folder,
         members=[m for m in members if m in zf.namelist()] if members else zf.namelist()
@@ -87,7 +87,7 @@ def unzip_files(zip_file: Union[str, Path], extract_folder:Union[str, Path], mem
       return False
     except Exception as e:
       logger.error(f'Unexpected error : {e}')
-      raise
+      return False
 
 def get_zip_file_namelist(zip_file: Union[str, Path]) -> list[str]:
   """

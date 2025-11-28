@@ -105,10 +105,10 @@ class DuckDbClient():
         NOW() AS date_T_insert
     """
     
-    logger.info(f'Starting inserting data from {cache_path}/{cache_sub_folder + '/' if cache_sub_folder != '' else ''}**/*.{files_type} into stg.{table_name}')
+    logger.info(f'Starting inserting data into stg.{table_name}')
     try :
       self.duck_conn.execute(query + query_select + query_select_de + query_from)
-      logger.success(f'Done inserting data from {cache_path}/{cache_sub_folder + '/' if cache_sub_folder != '' else ''}**/*.{files_type} into stg.{table_name}')
+      logger.info(f'Done inserting data into stg.{table_name}')
     except Exception as e:
-      logger.error(f'Error on inserting data from {cache_path}/{cache_sub_folder + '/' if cache_sub_folder != '' else ''}**/*.{files_type} into stg.{table_name}. \n Error : {e}')
+      logger.error(f'Error on inserting data into stg.{table_name}. \n Error : {e}')
     return True
