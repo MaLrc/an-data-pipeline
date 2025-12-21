@@ -17,3 +17,4 @@ dbt/draft.sql
 dbt/native_sql/*.sql
 dbt/logs/
 dbt/target/
+/logs
