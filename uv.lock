@@ -25,6 +25,7 @@ name = "an-data-pipeline"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "click" },
     { name = "dbt" },
     { name = "dbt-duckdb" },
     { name = "dotenv" },
@@ -42,6 +43,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "click", specifier = ">=8.3.1" },
     { name = "dbt", specifier = ">=1.0.0.40.11" },
     { name = "dbt-duckdb", specifier = ">=1.10.0" },
     { name = "dotenv", specifier = ">=0.9.9" },
