@@ -8,6 +8,7 @@ import os
 class DuckDbClient():
   def __init__(self) -> None:
     self.duck_conn = self.create_connection(DUCKDB_FILE)
+    self.duck_conn.execute('SET preserve_insertion_order=false')
     self.duck_conn.execute('CREATE SCHEMA IF NOT EXISTS stg;')
     self.duck_conn.execute(
         """
@@ -107,8 +108,11 @@ class DuckDbClient():
     
     logger.info(f'Starting inserting data into stg.{table_name}')
     try :
+      # logger.debug(query + query_select + query_select_de + query_from)
       self.duck_conn.execute(query + query_select + query_select_de + query_from)
-      logger.info(f'Done inserting data into stg.{table_name}')
+      query_inserted_lines_count = self.duck_conn.execute(f'SELECT COUNT(*) FROM stg.{table_name};').fetchone()
+      inserted_lines_count = query_inserted_lines_count[0] if query_inserted_lines_count else 0
+      logger.info(f'Done inserting {inserted_lines_count} lines into stg.{table_name}')
     except Exception as e:
       logger.error(f'Error on inserting data into stg.{table_name}. \n Error : {e}')
     return True

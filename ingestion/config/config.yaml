@@ -20,7 +20,7 @@ datasets:
     file_type: 'json'
     cache_dataset_folder: "amendements"
     cache_file_name: "amendements.zip"
-    cache_sub_folder: "json/amendements"
+    cache_sub_folder: "json"
     stg_table: raw_amendements
   Agenda:
     file_url: "http://data.assemblee-nationale.fr/static/openData/repository/17/vp/seances/seances_publique_libre_office.csv"
@@ -64,4 +64,3 @@ datasets:
     cache_file_name: "AMO40_deputes_actifs_mandats_actifs_organes_divises.zip"
     cache_sub_folder: "pays"
     stg_table: raw_pays
-  
