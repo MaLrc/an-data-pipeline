@@ -1,0 +1,33 @@
+name: Incremental refresh pipeline to prod environnement (MotherDuck)
+
+on:
+  # Allow manual runs from the Actions UI
+  workflow_dispatch: {}
+
+  schedule:
+    # Runs every Saturday and Sunday at 10:00 UTC. GitHub Actions uses UTC for cron schedules.
+    - cron: '0 9 * * *'
+
+jobs:
+  incremental-refresh:
+    runs-on: ubuntu-latest
+    env:
+      MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
+      ENV: ${{ secrets.ENV }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install uv (astral-sh)
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install dependencies with uv
+        run: uv sync
+
+      - name: Ingest data and icremental refresh Motherduck DB
+        run: make pipeline-incremental-refresh 
