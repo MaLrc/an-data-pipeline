@@ -9,4 +9,5 @@ dbt_an_data:
       path: "md:an_data_pipeline"
       token: "{{ env_var('MOTHERDUCK_TOKEN') }}"
       threads: 1
-  target: prod
+  # Set target via ENV environment variable; defaults to 'dev'
+  target: "{{ env_var('ENV', 'dev') }}"
