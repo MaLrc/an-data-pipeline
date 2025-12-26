@@ -33,4 +33,4 @@ jobs:
         run: cd ./dbt && uv run dbt run
         env:
           MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
-          ENV: ${{env.ENV}}
+          ENV: ${{ vars.ENV }}
