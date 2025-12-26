@@ -1,0 +1,12 @@
+dbt_an_data:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/database/database.duckdb
+      threads: 1
+    prod:
+      type: duckdb
+      path: "md:an_data_pipeline"
+      token: "{{ env_var('MOTHERDUCK_TOKEN') }}"
+      threads: 1
+  target: prod

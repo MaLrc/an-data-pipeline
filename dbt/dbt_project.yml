@@ -22,6 +22,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+on-run-start:
+  - "{% if target.name == 'prod' %}ATTACH '../data/database/database.duckdb' AS database (READ_ONLY){% endif %}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -33,8 +35,8 @@ models:
   dbt_an_data:
     # Config indicated by + and applies to all files under models/example/
     stg:
-      +materialized: view
+      +materialized: "{{ 'ephemeral' if target.name == 'prod' else 'view' }}"
     int:
-      +materialized: view
+      +materialized: incremental
     mart:
-      +materialized: table
+      +materialized: view

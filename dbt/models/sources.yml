@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: local_duckdb
+    description: Source locale DuckDB
+    database: database
+    schema: stg
+    tables:
+      - name: raw_acteurs
+        description: Exemple de table dans DuckDB
+      - name: raw_agenda
+        description: Exemple de table dans DuckDB
+      - name: raw_amendements
+        description: Exemple de table dans DuckDB
+      - name: raw_deports
+        description: Exemple de table dans DuckDB
+      - name: raw_deputes
+        description: Exemple de table dans DuckDB
+      - name: raw_organes
+        description: Exemple de table dans DuckDB
+      - name: raw_pays
+        description: Exemple de table dans DuckDB
+      - name: raw_reunions
+        description: Exemple de table dans DuckDB
+      - name: raw_scrutins
+        description: Exemple de table dans DuckDB
