@@ -29,6 +29,15 @@ jobs:
       - name: Ingest data from data.assemblee-nationale.fr
         run: uv run ./ingestion/run.py
 
+      - name: Caching data folder
+        uses: actions/cache@v3
+        with:
+          path: |
+            data/
+          key: data-cache-${{ hashFiles('data/cache/**') }}
+          restore-keys: |
+            data-cache-
+
       - name: DBT Incremental refresh Motherduck DB
         run: cd ./dbt && uv run dbt run
         env:
