@@ -34,8 +34,9 @@ jobs:
         with:
           path: |
             data/
-          key: data-cache-${{ hashFiles('data/cache/**') }}
+          key: data-cache-${{ hashFiles('data/**') }}
           restore-keys: |
+            data-cache-${{ hashFiles('data/**') }}
             data-cache-
 
       - name: DBT Incremental refresh Motherduck DB
