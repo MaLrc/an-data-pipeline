@@ -18,8 +18,7 @@ WITH scrutins AS (
 		json_extract_string(json, '$.scrutin.syntheseVote.nombreVotants') AS nb_votants,
 		json_extract_string(json, '$.scrutin.syntheseVote.suffragesExprimes') AS suffrages_exprimes,
 		json_extract_string(json, '$.scrutin.syntheseVote.nbrSuffragesRequis') AS seuil,
-		json_extract_string(json, '$.scrutin.lieuVote') AS lieu_vote,
-		date_T_insert
+		json_extract_string(json, '$.scrutin.lieuVote') AS lieu_vote
 	FROM {{ref('stg_scrutins')}}
 )
 SELECT * 
